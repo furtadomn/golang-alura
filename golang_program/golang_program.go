@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
@@ -14,12 +15,12 @@ func main() {
 }
 
 func greeting() {
-	var name string
-
 	line()
 	fmt.Println("   Olá! Qual o seu nome?")
 	fmt.Print("   ~> ")
-	fmt.Scan(&name)
+	inputName := bufio.NewScanner(os.Stdin)
+	inputName.Scan()
+	name := inputName.Text()
 
 	clear()
 
