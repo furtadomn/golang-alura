@@ -7,10 +7,10 @@ import "fmt"
 // }
 
 func main() {
-	var name string = "Marcella"
-	var age int = 28
+	var first_name string = "Marcella "
+	var last_name = "Furtado" // O Go consegue inferir o tipo das variáveis, então nós podemos omiti-lo
+	age := 28                 // Declaração curta de variáveis
 
-	fmt.Print("My name is ", name)
-	fmt.Print(". I'm ", age)
-	fmt.Print(" years old.")
+	fmt.Print("Olá! Meu nome é ", first_name, last_name)
+	fmt.Print(". Eu tenho ", age, " anos.")
 }
