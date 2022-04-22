@@ -14,13 +14,28 @@ func main() {
 	fmt.Println("O comando escolhido foi:", command)
 	fmt.Println("O endereço da minha variável de comando é:", &command)
 
-	if command == 1 {
+	// Declarações switch:
+
+	switch command {
+	case 1:
 		fmt.Println("Monitorando...")
-	} else if command == 2 {
+	case 2:
 		fmt.Println("Exibindo Logs...")
-	} else if command == 3 {
+	case 3:
 		fmt.Println("Saindo...")
-	} else {
+	default:
 		fmt.Println("Favor digite um comando válido [1, 2 ou 3].")
 	}
+
+	// Declarações if/else:
+
+	// if command == 1 {
+	// 	fmt.Println("Monitorando...")
+	// } else if command == 2 {
+	// 	fmt.Println("Exibindo Logs...")
+	// } else if command == 3 {
+	// 	fmt.Println("Saindo...")
+	// } else {
+	// 	fmt.Println("Favor digite um comando válido [1, 2 ou 3].")
+	// }
 }
