@@ -12,9 +12,7 @@ import (
 func main() {
 	for {
 		line()
-
-		sitesReader()
-
+		logRegister("site falso", false)
 		menu()
 
 		command := command()
@@ -72,8 +70,10 @@ func siteTest(site string) {
 
 	if resp.StatusCode == 200 {
 		fmt.Println("Site:", site, "foi carregado com sucesso!")
+		logRegister(site, true)
 	} else {
 		fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
+		logRegister(site, false)
 	}
 	line()
 }
@@ -100,6 +100,17 @@ func sitesReader() []string {
 	file.Close()
 
 	return sites
+}
+
+func logRegister(site string, status bool) {
+	file, err := os.OpenFile("log.txt", os.O_RDWR|os.O_CREATE, 0666)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(file)
+	file.Close()
 }
 
 func line() {
