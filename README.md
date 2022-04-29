@@ -4,8 +4,8 @@
 
 <br>
 
-## Progresso:
-### [Go: iniciando com a linguagem do Google](https://github.com/furtadomn/golang-alura/tree/main/Go:%20iniciando%20com%20a%20linguagem%20do%20Google)
+### Progresso:
+<strong>[Go: iniciando com a linguagem do Google](https://github.com/furtadomn/golang-alura/tree/main/Go:%20iniciando%20com%20a%20linguagem%20do%20Google)</strong>
 
 :small_orange_diamond: <strong>Status:</strong> Concluído :heavy_check_mark:
 
@@ -13,5 +13,6 @@
 
 <br>
 
-### [Go: Orientação a Objetos](https://github.com/furtadomn/golang-alura/tree/main/Go:%20Orienta%C3%A7%C3%A3o%20a%20Objetos)
+<strong>[Go: Orientação a Objetos](https://github.com/furtadomn/golang-alura/tree/main/Go:%20Orienta%C3%A7%C3%A3o%20a%20Objetos)</strong>
+
 :small_orange_diamond: <strong>Status:</strong> Em andamento :hourglass_flowing_sand:
