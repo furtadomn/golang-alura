@@ -8,6 +8,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -109,7 +110,7 @@ func logRegister(site string, status bool) {
 		fmt.Println(err)
 	}
 
-	file.WriteString(site + " - Online: " + strconv.FormatBool(status) + "\n")
+	file.WriteString(time.Now().Format("02/01/2006 15:04:05 - ") + site + " - Online: " + strconv.FormatBool(status) + "\n")
 	file.Close()
 }
 
