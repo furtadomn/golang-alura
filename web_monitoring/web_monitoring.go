@@ -1,15 +1,18 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"net/http"
 	"os"
 )
 
 func main() {
-
 	for {
 		line()
+
+		sitesReader()
+
 		menu()
 
 		command := command()
@@ -40,23 +43,60 @@ func command() int {
 	fmt.Scan(&inputCommand)
 	line()
 	fmt.Println("O comando escolhido foi: ", inputCommand)
+	line()
 
 	return inputCommand
 }
 
 func startMonitoring() {
 	fmt.Println("Iniciando monitoramento...")
-	site := "https://random-status-code.herokuapp.com/"
-	resp, _ := http.Get(site)
 	line()
-	fmt.Println(resp)
-	line()
+
+	sites := sitesReader()
+
+	for i, site := range sites {
+		fmt.Println("Posição: ", i, "Site: ", site)
+		siteTest(site)
+	}
+
+}
+
+func siteTest(site string) {
+	resp, err := http.Get(site)
+
+	if err != nil {
+		fmt.Println("Ocorreu um erro:", err)
+	}
 
 	if resp.StatusCode == 200 {
 		fmt.Println("Site:", site, "foi carregado com sucesso!")
 	} else {
 		fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
 	}
+	line()
+}
+
+func sitesReader() []string {
+	var sites []string
+
+	// file, err := ioutil.ReadFile("sites.txt")
+	file, err := os.Open("sites.txt")
+
+	if err != nil {
+		fmt.Println("Ocorreu um erro:", err)
+	}
+
+	// fmt.Println(string(file))
+	reader := bufio.NewReader(file)
+	line, err := reader.ReadString('\n')
+
+	if err != nil {
+		fmt.Println("Ocorreu um erro:", err)
+	}
+
+	fmt.Println(line)
+
+	return sites
 }
 
 func line() {
