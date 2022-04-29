@@ -6,13 +6,13 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 )
 
 func main() {
 	for {
 		line()
-		logRegister("site falso", false)
 		menu()
 
 		command := command()
@@ -103,13 +103,13 @@ func sitesReader() []string {
 }
 
 func logRegister(site string, status bool) {
-	file, err := os.OpenFile("log.txt", os.O_RDWR|os.O_CREATE, 0666)
+	file, err := os.OpenFile("log.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	fmt.Println(file)
+	file.WriteString(site + " - Online: " + strconv.FormatBool(status) + "\n")
 	file.Close()
 }
 
