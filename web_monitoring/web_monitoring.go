@@ -3,8 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"net/http"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -78,23 +80,24 @@ func siteTest(site string) {
 
 func sitesReader() []string {
 	var sites []string
-
-	// file, err := ioutil.ReadFile("sites.txt")
 	file, err := os.Open("sites.txt")
 
 	if err != nil {
 		fmt.Println("Ocorreu um erro:", err)
 	}
 
-	// fmt.Println(string(file))
 	reader := bufio.NewReader(file)
-	line, err := reader.ReadString('\n')
+	for {
+		line, err := reader.ReadString('\n')
+		line = strings.TrimSpace(line)
 
-	if err != nil {
-		fmt.Println("Ocorreu um erro:", err)
+		sites = append(sites, line)
+
+		if err == io.EOF {
+			break
+		}
 	}
-
-	fmt.Println(line)
+	file.Close()
 
 	return sites
 }
