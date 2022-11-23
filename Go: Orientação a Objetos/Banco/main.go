@@ -9,13 +9,23 @@ type ContaCorrente struct {
 	saldo         float64
 }
 
+func (c *ContaCorrente) Sacar(valorDoSaque float64) string {
+	podeSacar := valorDoSaque > 0 && valorDoSaque <= c.saldo
+	if podeSacar {
+		c.saldo -= valorDoSaque
+		return "Saque realizado com sucesso!"
+	} else {
+		return "Saldo insuficiente."
+	}
+}
+
 func main() {
-	contaDaMarcella := ContaCorrente{"Marcella", 123, 56789, 125.70}
+	contaDaMarcella := ContaCorrente{}
+	contaDaMarcella.titular = "Marcella"
+	contaDaMarcella.saldo = 500
+
 	fmt.Println(contaDaMarcella)
-
-	var contaDoChris *ContaCorrente
-	contaDoChris = new(ContaCorrente)
-	contaDoChris.titular = "Christian"
-
-	fmt.Println(*contaDoChris)
+	fmt.Println(contaDaMarcella.Sacar(800))
+	fmt.Println(contaDaMarcella.Sacar(400))
+	fmt.Println(contaDaMarcella)
 }
