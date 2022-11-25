@@ -2,4 +2,4 @@
 
 :woman_technologist: <strong>Curso:</strong> [Alura](https://www.alura.com.br/curso-online-go-lang-oo)
 
-:hourglass_flowing_sand: <i>Em andamento...</i>
+:page_facing_up: [Certificado](https://cursos.alura.com.br/certificate/7df10206-59f1-43af-ae12-dd41e326c4f8)
