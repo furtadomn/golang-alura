@@ -1,7 +1,11 @@
 package contas
 
+import (
+	"github.com/furtadomn/golang-studies/Go_Orientacao_a_Objetos/Banco/clientes"
+)
+
 type ContaCorrente struct {
-	Titular       string
+	Titular       clientes.Titular
 	NumeroAgencia int
 	NumeroConta   int
 	Saldo         float64

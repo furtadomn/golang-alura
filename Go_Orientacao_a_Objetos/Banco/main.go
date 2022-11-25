@@ -3,16 +3,23 @@ package main
 import (
 	"fmt"
 
+	"github.com/furtadomn/golang-studies/Go_Orientacao_a_Objetos/Banco/clientes"
 	"github.com/furtadomn/golang-studies/Go_Orientacao_a_Objetos/Banco/contas"
 )
 
 func main() {
-	contaDaMarcella := contas.ContaCorrente{Titular: "Marcella", Saldo: 1300}
-	contaDoChristian := contas.ContaCorrente{Titular: "Christian", Saldo: 900}
+	contaDaMarcella := contas.ContaCorrente{Titular: clientes.Titular{
+		Nome:      "Marcella",
+		CPF:       "123.123.123-13",
+		Profissao: "Desenvolvedora",
+	},
+		NumeroAgencia: 123,
+		NumeroConta:   123456,
+		Saldo:         1000,
+	}
 
-	status := contaDaMarcella.Transferir(200, &contaDoChristian)
-	fmt.Println(status)
+	// clienteMarcella := clientes.Titular{"Marcella", "123.123.123-13", "Desenvolvedora"}
+	// contaDaMarcella := contas.ContaCorrente{clienteMarcella, 123, 123456, 1000}
 
 	fmt.Println(contaDaMarcella)
-	fmt.Println(contaDoChristian)
 }
