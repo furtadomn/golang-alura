@@ -9,7 +9,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-func dbConnect() *sql.DB {
+func DBConnect() *sql.DB {
 	envErr := godotenv.Load(".env")
 	if envErr != nil {
 		fmt.Println("Could not load .env file")
