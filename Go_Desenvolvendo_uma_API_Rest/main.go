@@ -9,8 +9,8 @@ import (
 
 func main() {
 	models.Books = []models.Book{
-		{Title: "Se quiser mudar o mundo: Um guia político para quem se importa", Author: "Sabrina Fernandes", Pages: 192},
-		{Title: "Terra das mulheres", Author: "Charlotte Perkins Gilman", Pages: 256},
+		{ID: 1, Title: "Se quiser mudar o mundo: Um guia político para quem se importa", Author: "Sabrina Fernandes", Pages: 192},
+		{ID: 2, Title: "Terra das mulheres", Author: "Charlotte Perkins Gilman", Pages: 256},
 	}
 
 	fmt.Println("Iniciando o servidor Rest com Go")
